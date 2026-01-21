@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuoClean™ - Appliance Revolution | 3 in 1</title>
+    <meta name="description" content="The appliance that combines washing machine, dishwasher and dryer in a single space. Italian patented technology.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-switcher a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .lang-switcher a:hover {
+            color: #764ba2;
+        }
+
+        .lang-switcher .active {
+            color: #764ba2;
+            border-bottom: 2px solid #764ba2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="200" cy="150" r="80" fill="rgba(255,255,255,0.05)"/><circle cx="800" cy="400" r="120" fill="rgba(255,255,255,0.05)"/><circle cx="1000" cy="200" r="60" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .patent-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-text {
+            color: #ffd700;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .three-in-one {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .appliance-icon {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .appliance-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .appliance-icon span {
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .appliance-icon p {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .feature-card p {
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+
+        /* Innovation Section */
+        .innovation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .innovation-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .email-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+            border: 2px solid #667eea;
+        }
+
+        .email-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .email-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .email-link:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+
+        .footer-company {
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .three-in-one {
+                gap: 1rem;
+            }
+
+            .appliance-icon {
+                padding: 1rem 1.5rem;
+            }
+
+            .appliance-icon span {
+                font-size: 2rem;
+            }
+
+            .email-link {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .features-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        🌐 <a href="index.html">IT</a> | <a href="index_en.html" class="active">EN</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="patent-badge">
+                🏆 ITALIAN PATENT - 100% Favorable Research Outcome
+            </div>
+            <h1>
+                <span class="logo-text">DuoClean™</span><br>
+                The Revolution is Here
+            </h1>
+            <p>
+                The world's first appliance combining<br>
+                <strong>Washing Machine • Dishwasher • Dryer</strong><br>
+                in the space of one
+            </p>
+            
+            <div class="three-in-one">
+                <div class="appliance-icon">
+                    <span>👕</span>
+                    <p>WASHER</p>
+                </div>
+                <div class="appliance-icon">
+                    <span>🍽️</span>
+                    <p>DISHWASHER</p>
+                </div>
+                <div class="appliance-icon">
+                    <span>🌪️</span>
+                    <p>DRYER</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why DuoClean™?</h2>
+            <p class="section-subtitle">Patented technology that changes the game</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="border: 3px solid #27ae60; box-shadow: 0 5px 30px rgba(39, 174, 96, 0.15);">
+                    <span class="feature-icon">🛡️</span>
+                    <h3 style="color: #27ae60;">Absolute Hygiene</h3>
+                    <p><strong>Complete physical segregation of compartments:</strong> laundry and dishes never come into contact. Separate hydraulic circuits, dedicated filters, and completely isolated chambers ensure the highest hygiene standards.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📐</span>
+                    <h3>Optimized Space</h3>
+                    <p>Three essential appliances in the space of one. Perfect for modern homes, studios, and anyone who wants to maximize their living space.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Energy Efficiency</h3>
+                    <p>Single electrical and hydraulic system for three functions. Drastic reduction in consumption and environmental impact.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h3>Homokinetic System</h3>
+                    <p>Patented technology with ceramic ball CV joint for smooth movements and unparalleled durability.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3>Economic Savings</h3>
+                    <p>One investment instead of three. Less maintenance, less space, maximum economic return.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🌍</span>
+                    <h3>Made in Italy</h3>
+                    <p>Designed and patented in Italy with the highest standards of quality, innovation, and design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hygiene Section -->
+    <section style="padding: 6rem 2rem; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Certified Hygiene: Zero Contamination</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+                Physical segregation technology ensures hospital-grade hygiene standards
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; margin-top: 3rem;">
+                <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🚫</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Separated Compartments</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">Laundry and dishes never in contact. Completely isolated chambers with hermetic seals.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">💧</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Dedicated Hydraulic Circuits</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">Independent inlet and drain systems for each function. No water sharing between compartments.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔬</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Advanced Filtration</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">Dedicated antibacterial filters for each compartment. Integrated air purification system.</p>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🧼</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Automatic Sanitization</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">Automatic cleaning cycles after each use. Certified antimicrobial materials.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.15); border-radius: 15px; backdrop-filter: blur(10px);">
+                <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">✓ Certified for professional use</p>
+                <p style="font-size: 1.1rem; opacity: 0.95;">Hygiene standards compliant with the strictest European regulations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section class="innovation">
+        <div class="innovation-content">
+            <h2 class="section-title" style="color: white;">Protected Innovation</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Our technology has received a 100% favorable outcome from the Italian Patent Office,<br>
+                confirming the uniqueness and innovation of the DuoClean™ solution
+            </p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Appliances in One</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Patent Approved</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">-70%</span>
+                    <span class="stat-label">Space Required</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Interested?</h2>
+            <p class="section-subtitle">
+                Whether you're an investor, manufacturer, distributor, or simply curious,<br>
+                we're ready to share our vision
+            </p>
+            
+            <div class="email-box">
+                <span class="email-icon">✉️</span>
+                <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Contact Us</h3>
+                <a href="mailto:info@saxinit.it" class="email-link">info@saxinit.it</a>
+                
+                <div class="contact-info">
+                    <p><strong>Available Opportunities:</strong></p>
+                    <p>• Commercial Partnerships<br>
+                    • Production Licenses<br>
+                    • Investments<br>
+                    • Technical Collaborations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><span class="footer-company">SAXINIT S.r.l.</span></p>
+        <p>DuoClean™ - Italian Patented Technology</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">
+            © 2024 SAXINIT S.r.l. All rights reserved.<br>
+            Patent Pending - Italian Patent and Trademark Office
+        </p>
+    </footer>
+
+</body>
+</html>
